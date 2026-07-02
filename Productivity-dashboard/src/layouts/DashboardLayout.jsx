@@ -4,11 +4,13 @@ import {Outlet} from "react-router-dom"
 
 function DashboardLayout(){
     return(
-        <div style={{display: "flex"}}>
+        <div className="flex h-screen overflow-hidden">
             <Sidebar/>
-            <div style={{flex: 1}}>
+            <div className="flex flex-col flex-1 min-w-0 overflow-y-auto">
                 <Navbar/>
-                <Outlet/>
+                <main className="flex-1 bg-gray-100 dark:bg-gray-950 p-4 md:p-6 lg:p-8">
+                    <Outlet/>
+                </main>
             </div>
         </div>
     )

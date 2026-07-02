@@ -3,8 +3,8 @@
 export default function Button({variant, size = "md", leading, trailing, className = "", children, ...rest}){
     const variants = {
         primary:   'bg-indigo-600 text-white hover:bg-indigo-700',
-        secondary: 'bg-white border border-gray-200 text-gray-900 hover:bg-gray-50',
-        ghost:     'text-gray-500 hover:text-gray-900 hover:bg-gray-100',
+        secondary: 'bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700',
+        ghost:     'text-gray-500 dark:text-gray-400 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700',
         danger:    'bg-rose-600 text-white hover:bg-rose-700 shadow-sm'
     }
     const sizes = {

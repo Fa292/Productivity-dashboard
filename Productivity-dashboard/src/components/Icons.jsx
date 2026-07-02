@@ -99,6 +99,12 @@ export const Icons = {
     </svg>
   ),
 
+  ArrowUp: (props) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M7 14l5-5 5 5"/>
+    </svg>
+  ),
+
   ArrowDown: (props) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M7 10l5 5 5-5"/>

@@ -10,11 +10,11 @@ const Chip = ({ tone = 'neutral', size = 'md', className = '', children }) => {
 
   const sizes = {
     sm: 'h-5 px-1.5 text-[11px]',
-    md: 'h-6 px-2 text-xs',
+    md: 'h-8 px-2 text-[10px]',
   }
 
   return (
-    <span className={`inline-flex items-center gap-1 rounded-md font-medium ${tones[tone]} ${sizes[size]} ${className}`}>
+    <span className={`inline-flex items-center justify-center gap-1 rounded-md font-medium ${tones[tone]} ${sizes[size]} ${className}`}>
       {children}
     </span>
   )

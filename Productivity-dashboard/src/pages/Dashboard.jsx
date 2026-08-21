@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import Chip from '../components/Chip'
@@ -10,19 +11,6 @@ import Sparkline from '../components/charts/Sparkline.jsx'
 import AreaChart from '../components/charts/AreaChart'
 import Ring from '../components/charts/Ring'
 import { Icons } from '../components/Icons'
-
-export const SEED_TODOS = [
-  { id: 1, title: 'Finalize Q3 launch comms timeline', priority: 'high',   due: 'Today',     project: 'Q3 Launch',        assignees: ['Maya Okonkwo', 'Aiden Chen'],                progress: 65,  bucket: 'Today',     done: false },
-  { id: 2, title: 'Review mobile onboarding flow v3',  priority: 'high',   due: 'Today',     project: 'Mobile App',       assignees: ['Sofia Reyes'],                               progress: 30,  bucket: 'Today',     done: false },
-  { id: 3, title: 'Sync with design on motion specs',  priority: 'medium', due: 'Today',     project: 'Design System',    assignees: ['Daniel Park', 'Maya Okonkwo'],               progress: 80,  bucket: 'Today',     done: false },
-  { id: 4, title: 'Send weekly update to stakeholders',priority: 'low',    due: 'Tomorrow',  project: 'Q3 Launch',        assignees: ['Maya Okonkwo'],                              progress: null,bucket: 'Today',     done: false },
-  { id: 5, title: 'Draft pricing experiment plan',     priority: 'medium', due: 'Thu',       project: 'Customer Research',assignees: ['Aiden Chen', 'Sofia Reyes'],                 progress: 15,  bucket: 'This week', done: false },
-  { id: 6, title: 'Audit auth flow edge cases',        priority: 'high',   due: 'Fri',       project: 'Mobile App',       assignees: ['Daniel Park'],                               progress: 50,  bucket: 'This week', done: false },
-  { id: 7, title: 'Refresh icon set tokens',           priority: 'low',    due: 'Next week', project: 'Design System',    assignees: ['Jordan Liu'],                                progress: null,bucket: 'Later',     done: false },
-  { id: 8, title: 'Plan offsite agenda',               priority: 'medium', due: 'Jun 4',     project: 'Q3 Launch',        assignees: ['Maya Okonkwo'],                              progress: null,bucket: 'Later',     done: false },
-  { id: 9, title: 'Migrate analytics events',          priority: 'high',   due: 'Yesterday', project: 'Mobile App',       assignees: ['Aiden Chen'],                                progress: 100, bucket: 'Today',     done: true  },
-  { id: 10,title: 'Ship dark mode polish',             priority: 'medium', due: 'Mon',       project: 'Design System',    assignees: ['Sofia Reyes', 'Jordan Liu'],                 progress: 100, bucket: 'This week', done: true  },
-]
 
 const ACTIVITY = [
   { who: 'Aiden Chen',  did: 'completed',   obj: 'API rate-limit polish',      when: '2m'  },
@@ -250,13 +238,8 @@ const ScoreCard = () => (
 )
 
 export default function Dashboard() {
-  const [todos, setTodos] = useState(SEED_TODOS)
-
-  const toggleTodo = (id) => {
-    setTodos(prev => prev.map(t =>
-      t.id === id ? { ...t, done: !t.done, progress: !t.done ? 100 : t.progress } : t
-    ))
-  }
+  const { todos, toggleTodo, openTask } = useOutletContext()
+  const navigate = useNavigate()
 
   return (
     <div className="space-y-6">
@@ -274,7 +257,7 @@ export default function Dashboard() {
         </div>
         <div className="flex items-center gap-2">
           <Button variant="secondary" leading={<Icons.Filter className="w-4 h-4" />}>Filters</Button>
-          <Button variant="primary" leading={<Icons.Plus className="w-4 h-4"/>}>New task</Button>
+          <Button variant="primary" leading={<Icons.Plus className="w-4 h-4"/>} onClick={openTask}>New task</Button>
         </div>
       </div>
 
@@ -297,7 +280,7 @@ export default function Dashboard() {
           <TodoPreview
             todos={todos}
             onToggle={toggleTodo}
-            onSeeAll={() => {}}
+            onSeeAll={() => navigate('/todos')}
           />
         </div>
         <ActivityCard />

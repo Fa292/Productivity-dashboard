@@ -76,7 +76,7 @@ const ProductCard = ({ p }) => (
   </Card>
 )
 
-export default function ProductExplorer({ compact = false }) {
+export default function ProductExplorer({ compact = false, showHeader = true }) {
   const [query, setQuery] = useState('')
   const [cat, setCat] = useState('All')
 
@@ -93,10 +93,12 @@ export default function ProductExplorer({ compact = false }) {
   return (
     <Card className="p-5 lg:p-6">
       <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-        <div>
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Product explorer</h3>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Workspace gear curated for your team</p>
-        </div>
+        {showHeader && (
+          <div>
+            <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Product explorer</h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Workspace gear curated for your team</p>
+          </div>
+        )}
         <div className="w-full sm:w-auto sm:min-w-[220px]">
           <Input
             leading={<Icons.Search className="w-4 h-4" />}

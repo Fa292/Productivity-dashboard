@@ -12,7 +12,7 @@ const TITLES = {
   analytics: 'Analytics',
   settings:  'Settings',
 }
-function Navbar(){
+function Navbar({ onMenuClick }){
     const { darkMode, Toggle } = useTheme()
     const { pathname } = useLocation()
     const [notifOpen, setNotifOpen] = useState(false)
@@ -33,6 +33,10 @@ function Navbar(){
     return(
         <header className="sticky top-0 z-30 bg-white/85 dark:bg-gray-900 backdrop border-b border-gray-200 dark:border-gray-700">
             <div className="h-16 px-4 md:px-6 flex items-center gap-3" ref={ref}>
+                {/* Hamburger — opens the sidebar drawer on mobile */}
+                <Button variant="ghost" size="iconSm" onClick={onMenuClick} className="lg:hidden">
+                    <Icons.Menu className="w-5 h-5" />
+                </Button>
                 <div className="hidden md:flex items-center gap-2 text-sm">
                     <span className="text-gray-400">Acme</span>
                     <span className="text-gray-300 dark:text-gray-600">/</span>

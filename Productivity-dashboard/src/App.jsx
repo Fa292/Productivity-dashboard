@@ -18,13 +18,17 @@ import { useTheme } from './context/ThemeContext.jsx'
 import DashboardLayout from './layouts/DashboardLayout.jsx'
 import './index.css'
 import './App.css'
+import ProtectedRoute from './components/ProtectedRoutes.jsx'
 
 function App() {
   
   return(
     <Routes>
         <Route path='login' element={<Login/>}></Route>
-        <Route path='/' element={<DashboardLayout/>}>
+        <Route path='/' 
+          element={<ProtectedRoute>
+            <DashboardLayout/>
+          </ProtectedRoute>}>
             <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path='dashboard' element={<Dashboard/>} />
             <Route path='analytics' element={<Analytics/>} />

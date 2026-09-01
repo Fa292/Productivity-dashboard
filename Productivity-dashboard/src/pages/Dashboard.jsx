@@ -213,9 +213,9 @@ export default function Dashboard() {
       {/* Greeting */}
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">Tuesday, May 19</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">Monday, August 24</div>
           <h1 className="mt-1 text-2xl md:text-3xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
-            Good morning, Maya 👋
+            Good evening, Fawaz 👋
           </h1>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             You're <span className="font-semibold text-gray-900 dark:text-white">3 tasks</span> ahead of pace this week. Keep it going.

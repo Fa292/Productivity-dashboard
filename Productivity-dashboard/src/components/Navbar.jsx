@@ -5,6 +5,8 @@ import Input from "./Input.jsx";
 import Button from './Button'
 import Avatar from './Avatar'
 import { Icons } from './Icons'
+import { AuthContext } from '../context/Authcontext.jsx';
+import { useContext } from 'react';
 const TITLES = {
   dashboard: 'Dashboard',
   todos:     'Todos',
@@ -20,6 +22,10 @@ function Navbar({ onMenuClick }){
     const ref = useRef(null)
     const page = pathname.replace('/', '')
     const title = TITLES[page] || 'Dashboard'
+    const {logout} = useContext(AuthContext);
+    const handleLogout = () => {
+        logout();
+    }
     useEffect(() => {
         const handler = (e) => {
             if (ref.current && !ref.current.contains(e.target)) {
@@ -90,8 +96,8 @@ function Navbar({ onMenuClick }){
                             onClick={() => { setProfileOpen(o => !o); setNotifOpen(false) }}
                             className="flex items-center gap-2 pl-1 pr-2 h-9 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-150"
                         >
-                            <Avatar name="Maya Okonkwo" size={28} />
-                            <span className="hidden sm:block text-sm font-medium text-gray-900 dark:text-white">Maya</span>
+                            <Avatar name="Fawaz Oloyede" size={28} />
+                            <span className="hidden sm:block text-sm font-medium text-gray-900 dark:text-white">Fawaz</span>
                             <Icons.ArrowDown className="hidden sm:block w-3.5 h-3.5 text-gray-400" />
                         </button>
 
@@ -103,7 +109,7 @@ function Navbar({ onMenuClick }){
                                     </button>
                                 ))}
                                 <div className="my-1 h-px bg-gray-200 dark:bg-gray-700" />
-                                <button className="w-full text-left px-4 py-2 text-sm text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-colors">
+                                <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-colors">
                                     Sign out
                                 </button>
                             </div>

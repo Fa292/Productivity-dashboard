@@ -1,0 +1,12 @@
+export const SEED_TODOS = [
+  { id: 1, title: 'Finalize Q3 launch comms timeline', priority: 'high',   due: 'Today',     project: 'Q3 Launch',        assignees: ['Maya Okonkwo', 'Aiden Chen'],                progress: 65,  bucket: 'Today',     done: false },
+  { id: 2, title: 'Review mobile onboarding flow v3',  priority: 'high',   due: 'Today',     project: 'Mobile App',       assignees: ['Sofia Reyes'],                               progress: 30,  bucket: 'Today',     done: false },
+  { id: 3, title: 'Sync with design on motion specs',  priority: 'medium', due: 'Today',     project: 'Design System',    assignees: ['Daniel Park', 'Maya Okonkwo'],               progress: 80,  bucket: 'Today',     done: false },
+  { id: 4, title: 'Send weekly update to stakeholders',priority: 'low',    due: 'Tomorrow',  project: 'Q3 Launch',        assignees: ['Maya Okonkwo'],                              progress: null,bucket: 'Today',     done: false },
+  { id: 5, title: 'Draft pricing experiment plan',     priority: 'medium', due: 'Thu',       project: 'Customer Research',assignees: ['Aiden Chen', 'Sofia Reyes'],                 progress: 15,  bucket: 'This week', done: false },
+  { id: 6, title: 'Audit auth flow edge cases',        priority: 'high',   due: 'Fri',       project: 'Mobile App',       assignees: ['Daniel Park'],                               progress: 50,  bucket: 'This week', done: false },
+  { id: 7, title: 'Refresh icon set tokens',           priority: 'low',    due: 'Next week', project: 'Design System',    assignees: ['Jordan Liu'],                                progress: null,bucket: 'Later',     done: false },
+  { id: 8, title: 'Plan offsite agenda',               priority: 'medium', due: 'Jun 4',     project: 'Q3 Launch',        assignees: ['Maya Okonkwo'],                              progress: null,bucket: 'Later',     done: false },
+  { id: 9, title: 'Migrate analytics events',          priority: 'high',   due: 'Yesterday', project: 'Mobile App',       assignees: ['Aiden Chen'],                                progress: 100, bucket: 'Today',     done: true  },
+  { id: 10,title: 'Ship dark mode polish',             priority: 'medium', due: 'Mon',       project: 'Design System',    assignees: ['Sofia Reyes', 'Jordan Liu'],                 progress: 100, bucket: 'This week', done: true  },
+]

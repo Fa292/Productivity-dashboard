@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import Input from "./Input.jsx";
 import Button from './Button'
@@ -17,6 +17,7 @@ const TITLES = {
 function Navbar({ onMenuClick }){
     const { darkMode, Toggle } = useTheme()
     const { pathname } = useLocation()
+    const navigate = useNavigate()
     const [notifOpen, setNotifOpen] = useState(false)
     const [profileOpen, setProfileOpen] = useState(false)
     const ref = useRef(null)
@@ -25,6 +26,10 @@ function Navbar({ onMenuClick }){
     const {logout} = useContext(AuthContext);
     const handleLogout = () => {
         logout();
+    }
+    const handleAccountSettings = () => {
+        setProfileOpen(false)
+        navigate('/settings')
     }
     useEffect(() => {
         const handler = (e) => {
@@ -104,7 +109,11 @@ function Navbar({ onMenuClick }){
                         {profileOpen && (
                             <div className="absolute right-0 top-11 w-52 z-40 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-xl py-1.5 overflow-hidden">
                                 {['View profile', 'Account settings', 'Keyboard shortcuts', 'Help center'].map(item => (
-                                    <button key={item} className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                    <button
+                                        key={item}
+                                        onClick={item === 'Account settings' ? handleAccountSettings : undefined}
+                                        className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                    >
                                         {item}
                                     </button>
                                 ))}

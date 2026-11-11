@@ -10,7 +10,7 @@ const EMPTY_FORM = { title: '', priority: 'medium', project: 'General', due: 'To
 const fieldClass =
   'w-full h-10 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 ' +
   'text-sm text-gray-900 dark:text-white px-3.5 transition-all duration-150 ' +
-  'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500'
+  'focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500';
 
 // The one task-creation modal, lifted out of the Todos page so every "New task"
 // button (sidebar, dashboard, todos) can open the same thing. It owns its own
@@ -27,7 +27,7 @@ export default function NewTaskModal({ open, onClose, onCreate }) {
 
   const handleCreate = () => {
     const title = form.title.trim()
-    if (!title) return
+    if (!title) return;
     onCreate({ ...form, title })
     close()
   }

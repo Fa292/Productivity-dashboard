@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 
-const Input = forwardRef(({ className = '', leading, trailing, ...rest }, ref) => (
+const Input = forwardRef(({ className = '', inputClassName = '', leading, trailing, ...rest }, ref) => (
   <div className={`relative flex items-center ${className}`}>
     {leading && (
       <span className="absolute left-3 text-gray-400 pointer-events-none">
@@ -18,6 +18,7 @@ const Input = forwardRef(({ className = '', leading, trailing, ...rest }, ref) =
         focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
         ${leading ? 'pl-10' : 'pl-3.5'}
         ${trailing ? 'pr-10' : 'pr-3.5'}
+        ${inputClassName}
       `}
       {...rest}
     />
